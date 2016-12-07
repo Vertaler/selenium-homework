@@ -10,13 +10,13 @@ class VideoMeta(Component):
     X_SHARE_DIALOG_OPEN = "//*[contains(@class, 'vp-layer-info')]//*[contains(@data-type,'RESHARE')]"
     X_SHARE_NUM = "{}/*[contains(@class,'widget_count')]".format(X_SHARE_DIALOG_OPEN)
     X_CLASS_BUTTON = "//*[contains(@class, 'vp-layer-info')]//*[contains(@data-type,'MOVIE')]"
-    X_CLASS_NUM = "/*[contains(@class,'widget_count')"
+    X_CLASS_NUM = "//*[contains(@class,'widget_count')]"
     X_DATE = "//*[contains(@class, 'vp-layer-info_cnt')]//*[contains(@class,'vp-layer-info_date')]"
     X_VIEWS = "//*[contains(@class, 'vp-layer-info_cnt')]//*[contains(@class,'vp-layer-info_views')]"
     X_AUTHOR_CHANNEL_LINK = "//*[contains(@class,'ucard_info')]//*[contains(@class,'js-video-album-link')]"
     X_AUTHOR_NAME = "//*[contains(@class,'ucard_info')]//*[contains(@href,'profile')]"
-    X_SUBSCRIBERS_NUM = "//*[contains(@class, 'vp-layer-channel_ac_count')]"
-    X_SUBSCRIBE_BUTTON = "//*[@class = 'vp-layer-channel_ac']//button"
+    #X_SUBSCRIBERS_NUM = "//*[contains(@class, 'vp-layer-channel_ac_count')]"
+    #X_SUBSCRIBE_BUTTON = "//*[@class = 'vp-layer-channel_ac']//button"
     X_DESCRIPTION = "//*[@class = 'vp-layer-description']//*[contains(@class, 'textWrap')]/span"
     X_EXPAND_DESCRIPTION = "//*[contains(@class, 'js-vp-layer-description_more')]"
     X_CLOSE_VIDEO = "//*[contains(@class,'media-layer_close_ico')]"
@@ -38,8 +38,8 @@ class VideoMeta(Component):
         self.EL_VIEWS = utils.wait_xpath(self.driver, self.X_VIEWS)
         self.EL_AUTHOR_CHANNEL_LINK = utils.wait_xpath(self.driver, self.X_AUTHOR_CHANNEL_LINK)
         self.EL_AUTHOR_NAME = utils.wait_xpath(self.driver, self.X_AUTHOR_NAME)
-        self.EL_SUBSCRIBERS_NUM = utils.wait_xpath(self.driver, self.X_SUBSCRIBERS_NUM)
-        self.EL_SUBSCRIBE_BUTTON = utils.wait_xpath(self.driver, self.X_SUBSCRIBE_BUTTON)
+        #self.EL_SUBSCRIBERS_NUM = utils.wait_xpath(self.driver, self.X_SUBSCRIBERS_NUM)
+        #self.EL_SUBSCRIBE_BUTTON = utils.wait_xpath(self.driver, self.X_SUBSCRIBE_BUTTON)
         self.EL_DESCRIPTION = utils.wait_xpath(self.driver, self.X_DESCRIPTION)
         self.EL_EXPAND_DESCRIPTION = utils.wait_xpath(self.driver, self.X_EXPAND_DESCRIPTION)
         self.EL_CLOSE_VIDEO = utils.wait_xpath(self.driver, self.X_CLOSE_VIDEO)

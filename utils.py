@@ -31,3 +31,6 @@ def wait_change_url(driver, timeout = DEFAULT_TIMEOUT, sleeptime = DEFAULT_SLEEP
 def replace_text(web_element, new_text):
     web_element.clear()
     web_element.send_keys(new_text)
+
+def click_directly(driver, elem):
+    driver.execute_script("arguments[0].click();", elem)

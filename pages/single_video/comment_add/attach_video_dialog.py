@@ -5,7 +5,7 @@ import utils
 class AttachVideoDialog(Component):
 
     # without smiles yet
-    X_FIRST_VIDEO = "//*[@id='av-page-myVideo-1']"
+    X_FIRST_VIDEO = "//*[@id='av-page-myVideo-1']/div[1]"
 
     def __init__(self, driver):
         super(AttachVideoDialog, self).__init__(driver)
