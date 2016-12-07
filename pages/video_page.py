@@ -4,6 +4,7 @@ import utils
 class VideoPage(Page):
     VIDEO_TITLE_XPATH = '//div[@class="portlet_h portlet_h__nb textWrap"]'
     VIDEO_DESCRIPTION_XPATH = '//div[@class="media-text_cnt textWrap js-vp-layer-description_tx"]'
+
     def __init__(self, driver, path):
         super(VideoPage, self).__init__(driver)
         self.PATH = path

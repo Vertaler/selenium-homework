@@ -1,21 +1,27 @@
 from pages.base import Page, Component
+from video_meta import VideoMeta
+from .comment_add.video_comment_form import VideoCommentForm
 import utils
 
-class VideoPage(Page):
-    VIDEO_TITLE_XPATH = '//div[@class="portlet_h portlet_h__nb textWrap"]'
-    VIDEO_DESCRIPTION_XPATH = '//div[@class="media-text_cnt textWrap js-vp-layer-description_tx"]'
+
+class SingleVideoPage(Page):
 
     def __init__(self, driver, path):
-        super(VideoPage, self).__init__(driver)
+        super(SingleVideoPage, self).__init__(driver)
         self.PATH = path
 
-    @property
-    def description(self):
-        return utils.wait_xpath(self.driver, self.VIDEO_DESCRIPTION_XPATH).text
-
-    @property
-    def title(self):
-        return utils.wait_xpath(self.driver, self.VIDEO_TITLE_XPATH).text
+    def bind(self):
+        self.VIDEO_META = VideoMeta(self.driver)
+        self.VIDEO_COMMENT_FORM = VideoCommentForm(self.driver)
 
 
-class 
+
+class VideoComment(Component):
+
+    def __init__(self, driver):
+        super(VideoComment, self).__init__(driver)
+        self.selector = None
+
+
+if __name__ == '__main__':
+    pass

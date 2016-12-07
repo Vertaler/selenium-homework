@@ -86,12 +86,13 @@ class ChangeChannelCase(BaseCase):
         try:
             channel_page.open()
             channel_page.edit_video( self.VIDEO_NAME_STUB, description = NEW_DESCRIPTION)
-            video_page  = VideoPage(self.driver, VIDEO_LINK)
+            video_page = VideoPage(self.driver, VIDEO_LINK)
             video_page.open()
             self.assertEquals(NEW_DESCRIPTION, video_page.description)#TODO
             channel_page.open()
         finally:
             channel_page.edit_video(self.VIDEO_NAME_STUB,description=OLD_DESCRIPTION)
+
 
 class SubscriptionsCase(BaseCase):
     CHANNEL_LINK =  'video/c1100320'

@@ -1,5 +1,7 @@
 from pages.base import Component
 import utils
+from attach_photo_dialog import AttachPhotoDialog
+from attach_video_dialog import AttachVideoDialog
 
 
 class VideoCommentForm(Component):
@@ -19,17 +21,19 @@ class VideoCommentForm(Component):
         self.EL_INPUT_FIELD = utils.wait_xpath(self.driver, self.X_INPUT_FIELD)
         self.EL_ADD_COMMENT_BUTTON = utils.wait_xpath(self.driver, self.X_ADD_COMMENT_BUTTON)
         self.EL_ATTACH_VIDEO = utils.wait_xpath(self.driver, self.X_ATTACH_VIDEO)
-        self.EL_ATTACH_PHOTO = utils.wait_xpath(self.driver, self.X_SHARE_DIALOG_OPEN)
-        self.EL_SHARE_NUM = utils.wait_xpath(self.driver, self.X_SHARE_NUM)
-        self.EL_CLASS_BUTTON = utils.wait_xpath(self.driver, self.X_CLASS_BUTTON)
-        self.EL_CLASS_NUM = utils.wait_xpath(self.driver, self.X_CLASS_NUM)
-        self.EL_DATE = utils.wait_xpath(self.driver, self.X_DATE)
-        self.EL_VIEWS = utils.wait_xpath(self.driver, self.X_VIEWS)
-        self.EL_AUTHOR_CHANNEL_LINK = utils.wait_xpath(self.driver, self.X_AUTHOR_CHANNEL_LINK)
-        self.EL_AUTHOR_NAME = utils.wait_xpath(self.driver, self.X_AUTHOR_NAME)
-        self.EL_SUBSCRIBERS_NUM = utils.wait_xpath(self.driver, self.X_SUBSCRIBERS_NUM)
-        self.EL_SUBSCRIBE_BUTTON = utils.wait_xpath(self.driver, self.X_SUBSCRIBE_BUTTON)
-        self.EL_DESCRIPTION = utils.wait_xpath(self.driver, self.X_DESCRIPTION)
-        self.EL_EXPAND_DESCRIPTION = utils.wait_xpath(self.driver, self.X_EXPAND_DESCRIPTION)
-        self.EL_CLOSE_VIDEO = utils.wait_xpath(self.driver, self.X_CLOSE_VIDEO)
-        self.EL_MINIMIZE_VIDEO = utils.wait_xpath(self.driver, self.X_MINIMIZE_VIDEO)
+        self.EL_ATTACH_PHOTO = utils.wait_xpath(self.driver, self.X_ATTACH_PHOTO)
+        self.EL_ATTACH_PHOTO_FROM_PC = utils.wait_xpath(self.driver, self.X_ATTACH_PHOTO_FROM_PC)
+
+    def attachPhoto(self):
+        APD = AttachPhotoDialog(self.driver)
+        APD.selectFirstPhoto()
+
+    def attachVideo(self):
+        AVD = AttachVideoDialog(self.driver)
+        AVD.selectFirstVideo()
+
+    def setCommentText(self, text):
+        self.EL_INPUT_FIELD.sendKeys(text)
+
+    def submit(self):
+        self.EL_ADD_COMMENT_BUTTON.click()
