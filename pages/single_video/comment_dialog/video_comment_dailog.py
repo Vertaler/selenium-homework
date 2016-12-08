@@ -2,6 +2,7 @@ from pages.base import Component
 import utils
 from pages.single_video.comment_add.attach_photo_dialog import AttachPhotoDialog
 from pages.single_video.comment_add.attach_video_dialog import AttachVideoDialog
+from video_dialog_comments import CommentListDialog
 
 
 class VideoCommentDialog(Component):
@@ -26,6 +27,7 @@ class VideoCommentDialog(Component):
         self.EL_ATTACH_VIDEO = utils.wait_xpath(self.driver, self.X_ATTACH_VIDEO)
         self.EL_ATTACH_PHOTO = utils.wait_xpath(self.driver, self.X_ATTACH_PHOTO)
         self.EL_ATTACH_PHOTO_FROM_PC = utils.wait_xpath(self.driver, self.X_ATTACH_PHOTO_FROM_PC)
+        self.COMMENT_LIST_DIALOG = CommentListDialog(self.driver)
 
     def attachPhoto(self):
         utils.click_directly(self.driver, self.EL_ATTACH)
@@ -46,3 +48,6 @@ class VideoCommentDialog(Component):
 
     def submit(self):
         utils.click_directly(self.driver, self.EL_ADD_COMMENT_BUTTON)
+
+    def close(self):
+        utils.click_directly(self.driver, self.EL_CLOSE_ICON)

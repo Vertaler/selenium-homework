@@ -40,6 +40,7 @@ class Comment(Component):
     X_REPLY = ".//*[@class = 'reply_w']//span[contains(@class, 'tico')]"
     X_DELETE_STUB = ".//*[contains(@class, 'delete-stub_info')]"
     X_RESTORE = ".//*[contains(@class, 'delete-stub_ac')]/a"
+    X_ATTACH_CHECK = ".//*[contains(@class,'__attach') or contains(@class,'collage_i')]"
 
     def __init__(self, driver, el_cmnt):
         super(Comment, self).__init__(driver)
@@ -107,3 +108,10 @@ class Comment(Component):
         if self.EL_REMOVE is None:
             return None
         return self.EL_TEXT.text
+
+    def checkAttach(self):
+        attach = self.safeBindElem(self.X_ATTACH_CHECK)
+        if attach is None:
+            return False
+        else:
+            return True
