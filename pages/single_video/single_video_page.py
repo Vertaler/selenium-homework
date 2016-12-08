@@ -15,7 +15,6 @@ class SingleVideoPage(Page):
         self.VIDEO_COMMENT_FORM = VideoCommentForm(self.driver)
 
 
-
 class VideoComment(Component):
 
     def __init__(self, driver):
