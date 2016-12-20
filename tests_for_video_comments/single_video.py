@@ -19,9 +19,12 @@ class Test1Case(BaseCase):
         #cmnts = self.video_page.info_item.el_comments_link.get_comments_count()
         #self.video_page.info_item.el_klasses_btn.switch_klass()
         #kls = self.video_page.info_item.el_klasses_btn.get_klasses_count()
-        self.video_page.send_comment(
-            with_pc_photo=True,
-            photo_path="/root/testsTP/seleniumMy/selenium-homework/unnamed.png",
-            text="comment_with_photo2"
-        )
+        for i in range(0, 1):
+            self.video_page.send_comment(
+                with_video=False,
+                with_photo=False,
+                with_pc_photo=True,
+                photo_path="/root/testsTP/seleniumMy/selenium-homework/unnamed.png",
+                text="comment_with_photo{}".format(i)
+            )
         pass
